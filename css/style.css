@@ -56,5 +56,5 @@ section {
 }
 
 #photos img {
-  max-height: 50vh;
+  height: 50vh;
 }
