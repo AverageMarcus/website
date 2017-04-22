@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Breakfast Club Oxford</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <section id="hero">
+      <img src="images/logo.png" />
+      <h1>Breakfast Club Oxford</h1>
+    </section>
+    <section id="info">
+      <div id="googlemaps"></div>
+      <div class="mask"></div>
+      <h2>Where and When</h2>
+      <div>
+        <a href="https://www.google.co.uk/maps/place/Society+Caf%C3%A9+Oxford/@51.7534829,-1.2592914,15z/data=!4m2!3m1!1s0x0:0xa172c383e4e9f944?sa=X&ved=0ahUKEwiOrOK7_a3TAhXHLsAKHeLtDFcQ_BIIdjAK">
+          Society Cafe, St. Michaels street, Oxford
+        </a>
+      </div>
+      <div>May 5th, 7:30am - 9:30am</div>
+    </section>
+    <section id="photos">
+      <img src="images/photos/1.jpg">
+      <img src="images/photos/2.jpg">
+      <img src="images/photos/3.jpg">
+      <img src="images/photos/4.jpg">
+      <img src="images/photos/5.jpg">
+      <img src="images/photos/6.jpg">
+      <img src="images/photos/7.jpg">
+      <img src="images/photos/8.jpg">
+    </section>
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        Food!
+      </p>
+    </section>
+  </body>
+
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+  var position = [51.7534829,-1.2592914];
+
+  function showGoogleMaps() {
+      var markerPosition = new google.maps.LatLng(position[0], position[1]);
+      var mapCenter = new google.maps.LatLng(position[0] - 0.0008, position[1]);
+      var mapOptions = {
+          zoom: 17,
+          streetViewControl: false,
+          scaleControl: false,
+          zoomControl: false,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          center: mapCenter,
+          draggable: false
+      };
+      map = new google.maps.Map(document.getElementById('googlemaps'), mapOptions);
+      marker = new google.maps.Marker({
+          position: markerPosition,
+          map: map,
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          icon: 'images/logo-small.png'
+      });
+  }
+  google.maps.event.addDomListener(window, 'load', showGoogleMaps);
+  </script>
+</html>
